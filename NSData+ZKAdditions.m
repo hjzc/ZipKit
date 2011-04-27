@@ -116,7 +116,7 @@
 	strm.avail_in = [self length];
 
 	NSMutableData *deflatedData = [NSMutableData dataWithLength:16384];
-	if (deflateInit2(&strm, Z_BEST_COMPRESSION, Z_DEFLATED, -MAX_WBITS, 8, Z_DEFAULT_STRATEGY) != Z_OK) return nil;
+	if (deflateInit2(&strm, Z_NO_COMPRESSION, Z_DEFLATED, -MAX_WBITS, 8, Z_DEFAULT_STRATEGY) != Z_OK) return nil;
 	do {
 		if (strm.total_out >= [deflatedData length])
 			[deflatedData increaseLengthBy:16384];
